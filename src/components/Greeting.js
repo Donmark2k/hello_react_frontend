@@ -6,7 +6,7 @@ function Greeting() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGreeting());
-  }, []);
+  }, [dispatch]);
 
   const greetingData = useSelector((state) => state.greeting.data);
   return (
