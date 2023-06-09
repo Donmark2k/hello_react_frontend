@@ -1,23 +1,23 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const url = "/greetings/random.json"; // Update the URL to match the correct endpoint
+const url = '/greetings/random.json'; // Update the URL to match the correct endpoint
 
 export const fetchGreeting = createAsyncThunk(
-  "greeting/fetchGreeting",
+  'greeting/fetchGreeting',
   async () => {
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
     const data = await response.json();
     return data;
-  }
+  },
 );
 
 const greetingSlice = createSlice({
-  name: "greeting",
+  name: 'greeting',
   initialState: { data: [] },
   reducers: {},
   extraReducers: (builder) => {
